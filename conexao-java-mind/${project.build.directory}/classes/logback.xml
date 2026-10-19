@@ -1,0 +1,34 @@
+<configuration>
+
+    <!-- Gera data/hora UMA vez, quando o programa inicia (vira o nome do arquivo) -->
+    <timestamp key="inicio" datePattern="yyyy-MM-dd-HH-mm-ss"/>
+
+    <!-- Molde da linha do Log-->
+    <property name="PADRAO"
+              value="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %5level --- [%thread] %-30.30logger{29} : %msg%n"/>
+
+    <!-- Destino 1: console do intelliJ-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${PADRAO}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Destino 2: arquivo do log-->
+    <appender name="ARQUIVO" class="ch.qos.logback.core.FileAppender">
+        <file>logs/log-${inicio}.txt</file>
+        <encoder>
+            <pattern>${PADRAO}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="school.sptech" level="DEBUG"/>
+
+    <!-- Todo o resto (bibliotecas): só WARN ou pior -->
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ARQUIVO"/>
+    </root>
+
+</configuration>
