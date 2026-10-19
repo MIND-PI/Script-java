@@ -1,5 +1,5 @@
 <configuration>
-
+<!--Escreve as linhas no console e no arquivo, recebe o log do SLF4J e decide formato, nível, etc-->
     <!-- Gera data/hora UMA vez, quando o programa inicia (vira o nome do arquivo) -->
     <timestamp key="inicio" datePattern="yyyy-MM-dd-HH-mm-ss"/>
 
@@ -15,6 +15,7 @@
     </appender>
 
     <!-- Destino 2: arquivo do log-->
+<!-- Monta um objeto FileAppender com o apelido ARQUIVO, dentro dele tem os logs-->
     <appender name="ARQUIVO" class="ch.qos.logback.core.FileAppender">
         <file>logs/log-${inicio}.txt</file>
         <encoder>

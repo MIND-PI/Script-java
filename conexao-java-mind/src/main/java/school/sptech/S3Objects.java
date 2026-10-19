@@ -18,7 +18,6 @@ import java.time.format.DateTimeFormatter;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
-// 	Baixa CSVs do S3, apaga os locais e envia o log
 public class S3Objects {
     private static final Logger log = LoggerFactory.getLogger(S3Objects.class);
 

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
+// Consulta os limites no banco
 public class LimiteDao {
     // Logs próprios da classe
     private static final Logger log = LoggerFactory.getLogger(LimiteDao.class);

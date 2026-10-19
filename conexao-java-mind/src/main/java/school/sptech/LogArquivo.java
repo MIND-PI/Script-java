@@ -11,14 +11,19 @@ import org.slf4j.LoggerFactory;
 
 public class LogArquivo {
     public static String getCaminho(){
+//        LoggerContext armazena os logs e destinos de cada um
         LoggerContext contexto = (LoggerContext) LoggerFactory.getILoggerFactory();
+
+        // Busca no <root> do XML o destino chamado ARQUIVO
         FileAppender<ILoggingEvent> appender = (FileAppender<ILoggingEvent>)
                 contexto.getLogger(Logger.ROOT_LOGGER_NAME).getAppender("ARQUIVO");
+
 
         if(appender == null){
             return null;
         }
 
+        // Retorna o valor do campo file
         return appender.getFile();
     }
 }

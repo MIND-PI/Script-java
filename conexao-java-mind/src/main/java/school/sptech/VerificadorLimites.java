@@ -39,6 +39,7 @@ public class VerificadorLimites {
 
         detectarReinicio(clp);
 
+        // Armazena em pares de chave e valor e mantém na ordem de inserção
         Map<String, Violacao> violacoes = new LinkedHashMap<>();
 
         for (Leitura leitura : clp.getLeituras()) {

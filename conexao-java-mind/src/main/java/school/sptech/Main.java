@@ -47,7 +47,6 @@ public class Main {
                 System.out.println("\n\n\n\n");
 
                 for (Leitura leitura : clp.getLeituras()) {
-
                     System.out.println(leitura);
                 }
 
