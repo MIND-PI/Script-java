@@ -1,5 +1,6 @@
 package school.sptech;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.slf4j.Logger;
@@ -14,6 +15,8 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
+        Dotenv dotenv = Dotenv.load();
+
         // Verificando se as credenciais estão corretas
         System.out.println("KEY: " + System.getenv("AWS_ACCESS_KEY_ID"));
         System.out.println("TOKEN: " + (System.getenv("AWS_SESSION_TOKEN") != null));
@@ -26,8 +29,8 @@ public class Main {
         // ERROR: Falhas (banco ou bucket), na Main
 
         // Defina o nome do bucket e o prefixo da busca
-        String nomeBucket = "s3-mind-26";
-        String prefixo = "silver/";
+        String nomeBucket = dotenv.get("NOME_BUCKET");
+        String prefixo = dotenv.get("PREFIXO");
         String nomePasta = "silver";
 
         try {

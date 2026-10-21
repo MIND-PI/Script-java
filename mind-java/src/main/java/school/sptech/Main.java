@@ -96,7 +96,7 @@ public class Main {
                             Thread.sleep(500);
                             System.out.print(".");
                             Thread.sleep(500);
-                            System.out.0println(".");
+                            System.out.println(".");
                             Thread.sleep(500);
                             System.out.println(dataHoraFormatada + " [INFO] Chamado aberto com sucesso!");
                             Thread.sleep(1000);
