@@ -68,16 +68,16 @@ public class Main {
             // ABERTURA DE CHAMADO NO JIRA
             LimiteDao limiteDao = new LimiteDao(template);
             VerificadorLimites verificador = new VerificadorLimites();
-            ConexaoJira jira = new ConexaoJira();
-
+//            ConexaoJira jira = new ConexaoJira();
+//
             for (Clp clpAtual : clps) {
                 try {
                     List<LimiteMedicao> limites = limiteDao.buscarLimites(clpAtual.getId_clp());
                     List<Violacao> violacoes = verificador.verificar(clpAtual, limites);
 
-                    for (Violacao violacao : violacoes) {
-                        jira.abrirChamado(violacao);
-                    }
+//                    for (Violacao violacao : violacoes) {
+//                        jira.abrirChamado(violacao);
+//                    }
                 } catch (Exception e) {
                     log.error("Falha ao processar o CLP {}", clpAtual.getId_clp(), e);
                 }
