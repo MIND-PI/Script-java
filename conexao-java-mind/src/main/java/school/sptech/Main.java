@@ -17,10 +17,6 @@ public class Main {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.load();
 
-        // Verificando se as credenciais estão corretas
-        System.out.println("KEY: " + System.getenv("AWS_ACCESS_KEY_ID"));
-        System.out.println("TOKEN: " + (System.getenv("AWS_SESSION_TOKEN") != null));
-
         // TIPOS DE LOG
         // INFO: Resumo de cada CLP
         // WARN: Leitura acima do limite
@@ -41,7 +37,7 @@ public class Main {
             System.out.println("Lendo CSVs");
             List<Clp> clps = new Arquivo().lerCsvs(nomePasta);
 
-            Clp clp = new Arquivo().buscarCpl(clps, 19, 4, "1");
+            Clp clp = new Arquivo().buscarCpl(clps, 20, 4, "1");
             if (clp == null) {
                 System.out.println("\nCLP não encontrado");
             } else {

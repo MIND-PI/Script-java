@@ -9,7 +9,6 @@ public class S3Provider {
     //Representa o provedor de credenciais usado pelo SDK.
     private final AwsCredentialsProvider credentials;
 
-
     public S3Provider() {
         this.credentials = DefaultCredentialsProvider.create();
         //aplica automaticamente a cadeia de credenciais da AWS.
