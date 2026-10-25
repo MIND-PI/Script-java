@@ -22,11 +22,11 @@ public class ConexaoBd {
 
         String user = dotenv.get("USER_DB");
         String password = dotenv.get("PASSWORD_BD");
+        String url = "jdbc:mysql://" + dotenv.get("IP_INSTANCE") + ":3306/mind";
 
         driver.setUsername(user);
         driver.setPassword(password);
-//        driver.setUrl("jdbc:mysql://100.55.56.59:3306/mind");
-        driver.setUrl("jdbc:mysql://127.0.0.1:3306/mind");
+        driver.setUrl(url);
         driver.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         //Conecta ao banco de dados

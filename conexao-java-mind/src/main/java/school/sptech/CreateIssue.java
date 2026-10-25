@@ -1,12 +1,16 @@
 package school.sptech;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import school.sptech.config.Jira;
 
 public class CreateIssue {
+
+    private static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public void criarChamado(Clp clp, List<Violacao> violacoes){
         Dotenv dotenv = Dotenv.load();
@@ -15,20 +19,19 @@ public class CreateIssue {
         // Cria a descrição para o chamado de cada leitura fora do limite
         for (Violacao violacao : violacoes) {
 
-            String titulo = "CLP " + clp.getMac_adress() + " : " + violacoes.size() + " medida(s) fora do limite";
+            String titulo = "CLP " + clp.getMac_adress() + ": " + violacao.getApelido() + " acima do limite";
 
             StringBuilder descricao = new StringBuilder();
-            descricao.append("Execução em ").append(java.time.LocalDateTime.now()).append("\n\n");
+            descricao.append("Execução em ").append(LocalDateTime.now().format(FORMATO)).append("\n\n");
 
 
             descricao.append(violacao.getApelido())
                     .append(" (limite ").append(violacao.getParametro())
                     .append(" ").append(violacao.getUnidadeMedida())
                     .append(")\n");
-            descricao.append("Id CLP: ").append(clp.getId_clp()).append("\n");
-            descricao.append(" Maior valor: ").append(violacao.getMaiorValor()).append("\n");
+            descricao.append(" Maior valor: ").append(String.format("%.2f", violacao.getMaiorValor())).append("\n");
             descricao.append(" Ocorrências: ").append(violacao.getOcorrencias()).append("\n");
-            descricao.append(" Primeira ocorrência: ").append(violacao.getPrimeiraOcorrencia()).append("\n");
+            descricao.append(" Primeira ocorrência: ").append(violacao.getPrimeiraOcorrencia().format(FORMATO)).append("\n");
             descricao.append(" Processos no pico: ").append(violacao.getProcessosNoPico()).append("\n");
             descricao.append(" Leituras fora do limite:\n");
 
@@ -42,7 +45,7 @@ public class CreateIssue {
 
             try{
                 String response = jira.createIssue(
-                        dotenv.get("KEY_WORKSPACE"), // Key do projeto, presente na URL do seu site
+                        "CHAM", // Key do projeto, presente na URL do seu site
                         titulo, // Nome da issue
                         "Tarefa", // Tipo da issue: "Task", "Bug", "Story", etc.
                         descricao.toString()

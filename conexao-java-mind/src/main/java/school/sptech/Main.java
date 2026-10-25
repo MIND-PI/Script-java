@@ -37,21 +37,7 @@ public class Main {
             System.out.println("Lendo CSVs");
             List<Clp> clps = new Arquivo().lerCsvs(nomePasta);
 
-            Clp clp = new Arquivo().buscarCpl(clps, 20, 4, "1");
-            if (clp == null) {
-                System.out.println("\nCLP não encontrado");
-            } else {
-                System.out.println("\n" + clp + " | leituras: " + clp.getLeituras().size());
-
-                System.out.println("\n\n");
-
-                for (Leitura leitura : clp.getLeituras()) {
-                    System.out.println(leitura);
-                }
-
-                System.out.println("Deletando CSVs");
-            }
-
+            System.out.println("Deletando CSVs");
             obj.deleteCsvs(prefixo);
 
 

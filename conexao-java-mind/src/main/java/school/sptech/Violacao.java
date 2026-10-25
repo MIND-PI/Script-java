@@ -1,6 +1,7 @@
 package school.sptech;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Violacao {
     private LocalDateTime primeiraOcorrencia;
     private String processosNoPico;
     private List<String> detalhesChamado = new ArrayList<>();
+    private static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public Violacao(Integer idClp, String modelo, LimiteMedicao limite, Double valor, Leitura leitura) {
         this.idClp = idClp;
@@ -26,12 +28,12 @@ public class Violacao {
         this.ocorrencias = 1;
         this.primeiraOcorrencia = leitura.getTimestamp();
         this.processosNoPico = leitura.getResumoProcessos();
-        this.detalhesChamado.add(leitura.getTimestamp() + " = " + valor);
+        this.detalhesChamado.add(leitura.getTimestamp().format(FORMATO) + " = " + valor);
     }
 
     public void registrar(Double valor, Leitura leitura){
         this.ocorrencias++;
-        this.detalhesChamado.add(leitura.getTimestamp() + " = " + valor);
+        this.detalhesChamado.add(leitura.getTimestamp().format(FORMATO) + " = " + String.format("%.2f", valor));
 
         if(valor > this.maiorValor){
             this.maiorValor = valor;
