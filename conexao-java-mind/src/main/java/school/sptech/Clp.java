@@ -6,29 +6,32 @@ import java.util.List;
 public class Clp {
     private Integer id_clp;
     private Integer id_empresa;
-    private String modelo_clp;
+    private String apelido;
+    private String id_modelo;
     private List<Leitura> leituras = new ArrayList<>();
     private String mac_adress;
+    private String nome_modelo;
+
 
     public Clp(Integer id_clp, Integer id_empresa, String modelo_clp) {
         this.id_clp = id_clp;
         this.id_empresa = id_empresa;
-        this.modelo_clp = modelo_clp;
+        this.id_modelo = modelo_clp;
     }
 
     public Clp(Integer id_clp, Integer id_empresa, String modelo_clp, List<Leitura> leituras) {
         this.id_clp = id_clp;
         this.id_empresa = id_empresa;
-        this.modelo_clp = modelo_clp;
+        this.id_modelo = modelo_clp;
         this.leituras = leituras;
     }
 
-    public String getModelo_clp() {
-        return modelo_clp;
+    public String getId_modelo() {
+        return id_modelo;
     }
 
-    public void setModelo_clp(String modelo_clp) {
-        this.modelo_clp = modelo_clp;
+    public void setId_modelo(String id_modelo) {
+        this.id_modelo = id_modelo;
     }
 
     public Integer getId_clp() {
@@ -63,12 +66,22 @@ public class Clp {
         this.leituras = leituras;
     }
 
+    public String getNome_modelo() { return nome_modelo; }
+
+    public void setNome_modelo(String nome_modelo) { this.nome_modelo = nome_modelo;}
+
+    public String getApelido() { return apelido;}
+
+    public void setApelido(String apelido) { this.apelido = apelido; }
+
+
+
     @Override
     public String toString() {
         return "Clp{" +
                 "id_clp=" + id_clp +
                 ", id_empresa=" + id_empresa +
-                ", modelo_clp='" + modelo_clp + '\'' +
+                ", modelo_clp='" + id_modelo + '\'' +
                 ", leituras=" + leituras +
                 '}';
     }
@@ -77,7 +90,7 @@ public class Clp {
         for (Clp clp: clps) {
             if (clp.getId_clp().equals(id_clp) && clp.getId_empresa().equals(id_empresa)){
                 return "Clp{" +
-                        "modelo_clp='" + clp.getModelo_clp() + '\'' +
+                        "modelo_clp='" + clp.getId_modelo() + '\'' +
                         ", id_clp=" + id_clp +
                         ", id_empresa=" + id_empresa +
                         ", Leituras=" + clp.getLeituras();

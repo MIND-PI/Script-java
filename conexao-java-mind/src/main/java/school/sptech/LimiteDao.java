@@ -5,12 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import software.amazon.awssdk.services.s3.endpoints.internal.Value;
 
 import java.util.List;
 
 // Consulta os limites no banco
 public class LimiteDao {
     String mac_adress = null;
+    String nome_modelo = null;
 
     // Logs próprios da classe
     private static final Logger log = LoggerFactory.getLogger(LimiteDao.class);
@@ -46,6 +48,35 @@ public class LimiteDao {
             mac_adress = null;
         }
         return mac_adress;
+    }
+
+    public String buscarNomeModelo(Integer idClp){
+        String selectNomeModelo = "SELECT m.nome\n" +
+                "FROM clp c\n" +
+                "JOIN modelo m ON c.modeloId = m.idmodelo\n" +
+                "WHERE c.idClp = ?;";
+
+        try{
+            nome_modelo = template.queryForObject(selectNomeModelo, String.class, idClp);
+        }
+        catch (EmptyResultDataAccessException e){
+            log.warn("CLP {} não encontrado na tabela clp", idClp);
+            mac_adress = null;
+        }
+        return nome_modelo;
+    }
+
+    public String buscarNomeClp(Integer idClp){
+        String selectNomeClp = "SELECT nome FROM clp WHERE idClp = ?";
+
+        try{
+            nome_modelo = template.queryForObject(selectNomeClp, String.class, idClp);
+        }
+        catch (EmptyResultDataAccessException e){
+            log.warn("CLP {} não encontrado na tabela clp", idClp);
+            mac_adress = null;
+        }
+        return nome_modelo;
     }
 
 

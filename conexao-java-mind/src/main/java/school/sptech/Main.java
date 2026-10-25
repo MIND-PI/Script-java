@@ -63,6 +63,12 @@ public class Main {
                     // Insere o mac_adress em clp
                     clpAtual.setMac_adress(limiteDao.buscarMacAdress(clpAtual.getId_clp()));
 
+                    // Insere o nome do modelo em clp
+                    clpAtual.setNome_modelo(limiteDao.buscarNomeModelo(clpAtual.getId_clp()));
+
+                    // Insere o nome do CLP (apelido)
+                    clpAtual.setApelido(limiteDao.buscarNomeClp(clpAtual.getId_clp()));
+
                     // Busca os limites no banco
                     List<LimiteMedicao> limites = limiteDao.buscarLimites(clpAtual.getId_clp());
 

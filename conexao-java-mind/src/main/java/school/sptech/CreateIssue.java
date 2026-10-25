@@ -19,16 +19,16 @@ public class CreateIssue {
         // Cria a descrição para o chamado de cada leitura fora do limite
         for (Violacao violacao : violacoes) {
 
-            String titulo = "CLP " + clp.getMac_adress() + ": " + violacao.getApelido() + " acima do limite";
+            String titulo = clp.getApelido() + " | Mac: " + clp.getMac_adress() + ": " + violacao.getApelido() + " acima do limite";
 
             StringBuilder descricao = new StringBuilder();
             descricao.append("Execução em ").append(LocalDateTime.now().format(FORMATO)).append("\n\n");
-
 
             descricao.append(violacao.getApelido())
                     .append(" (limite ").append(violacao.getParametro())
                     .append(" ").append(violacao.getUnidadeMedida())
                     .append(")\n");
+            descricao.append(" Modelo: ").append(clp.getNome_modelo()).append("\n");
             descricao.append(" Maior valor: ").append(String.format("%.2f", violacao.getMaiorValor())).append("\n");
             descricao.append(" Ocorrências: ").append(violacao.getOcorrencias()).append("\n");
             descricao.append(" Primeira ocorrência: ").append(violacao.getPrimeiraOcorrencia().format(FORMATO)).append("\n");

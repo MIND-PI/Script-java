@@ -67,7 +67,7 @@ public class VerificadorLimites {
                     Violacao existente = violacoes.get(limite.getApelido());
                     if (existente == null) {
                         violacoes.put(limite.getApelido(),
-                                new Violacao(clp.getId_clp(), clp.getModelo_clp(), limite, valor, leitura));
+                                new Violacao(clp.getId_clp(), clp.getId_modelo(), limite, valor, leitura));
                     } else {
                         existente.registrar(valor, leitura);
                     }

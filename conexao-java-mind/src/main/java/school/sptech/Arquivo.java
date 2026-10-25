@@ -107,7 +107,7 @@ public class Arquivo {
     public Clp buscarCpl(List<Clp> clps, Integer id_clp, Integer id_empresa, String modelo) {
         System.out.printf("\nBuscando CLP id_clp - %d, id_empresa - %d, modelo - %s", id_clp, id_empresa, modelo);
         for (Clp clp : clps) {
-            if (clp.getId_empresa().equals(id_empresa) && clp.getId_clp().equals(id_clp) && clp.getModelo_clp().equals(modelo)){
+            if (clp.getId_empresa().equals(id_empresa) && clp.getId_clp().equals(id_clp) && clp.getId_modelo().equals(modelo)){
                 return clp;
             }
         }
