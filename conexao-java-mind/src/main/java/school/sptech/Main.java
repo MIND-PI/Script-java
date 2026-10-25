@@ -62,7 +62,7 @@ public class Main {
                 try {
                     // Insere o mac_adress em clp
                     clpAtual.setMac_adress(limiteDao.buscarMacAdress(clpAtual.getId_clp()));
-
+                    System.out.println("CLP atual: "+clpAtual);
                     // Insere o nome do modelo em clp
                     clpAtual.setNome_modelo(limiteDao.buscarNomeModelo(clpAtual.getId_clp()));
 
