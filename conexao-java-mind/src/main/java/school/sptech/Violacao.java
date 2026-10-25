@@ -1,9 +1,12 @@
 package school.sptech;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Violacao {
     private Integer idClp;
+    private String modelo;
     private String apelido;
     private String unidadeMedida;
     private Integer parametro;
@@ -11,24 +14,38 @@ public class Violacao {
     private int ocorrencias;
     private LocalDateTime primeiraOcorrencia;
     private String processosNoPico;
+    private List<String> detalhesChamado = new ArrayList<>();
 
-    public Violacao(Integer idClp, LimiteMedicao limite, Double valor, Leitura leitura) {
+    public Violacao(Integer idClp, String modelo, LimiteMedicao limite, Double valor, Leitura leitura) {
         this.idClp = idClp;
         this.apelido = limite.getApelido();
+        this.modelo = modelo;
         this.unidadeMedida = limite.getUnidadeMedida();
         this.parametro = limite.getParametro();
         this.maiorValor = valor;
         this.ocorrencias = 1;
         this.primeiraOcorrencia = leitura.getTimestamp();
         this.processosNoPico = leitura.getResumoProcessos();
+        this.detalhesChamado.add(leitura.getTimestamp() + " = " + valor);
     }
 
     public void registrar(Double valor, Leitura leitura){
         this.ocorrencias++;
+        this.detalhesChamado.add(leitura.getTimestamp() + " = " + valor);
+
         if(valor > this.maiorValor){
             this.maiorValor = valor;
             this.processosNoPico = leitura.getResumoProcessos();
         }
+    }
+
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public Integer getIdClp() {
@@ -93,5 +110,9 @@ public class Violacao {
 
     public void setProcessosNoPico(String processosNoPico) {
         this.processosNoPico = processosNoPico;
+    }
+
+    public List<String> getDetalhesChamado(){
+        return detalhesChamado;
     }
 }

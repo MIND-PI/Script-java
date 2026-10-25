@@ -8,6 +8,7 @@ public class Clp {
     private Integer id_empresa;
     private String modelo_clp;
     private List<Leitura> leituras = new ArrayList<>();
+    private String mac_adress;
 
     public Clp(Integer id_clp, Integer id_empresa, String modelo_clp) {
         this.id_clp = id_clp;
@@ -48,6 +49,14 @@ public class Clp {
 
     public List<Leitura> getLeituras() {
         return leituras;
+    }
+
+    public String getMac_adress() {
+        return mac_adress;
+    }
+
+    public void setMac_adress(String mac_adress) {
+        this.mac_adress = mac_adress;
     }
 
     public void setLeituras(List<Leitura> leituras) {

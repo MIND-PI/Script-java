@@ -34,12 +34,12 @@ public class Jira {
         this.objectMapper = new ObjectMapper();
     }
 
-    public String createIssue(String projectKey, String summary, String issueType)
+    public String createIssue(String projectKey, String summary, String issueType, String description)
             throws IOException, InterruptedException {
         // Monta o corpo da requisição usando os DTOs
         ProjectDto project = new ProjectDto(projectKey);
         IssueTypeDto type = new IssueTypeDto(issueType);
-        IssueFieldsDto fields = new IssueFieldsDto(project, summary, type);
+        IssueFieldsDto fields = new IssueFieldsDto(project, summary, type, description);
         IssueRequestDto issueRequest = new IssueRequestDto(fields);
 
         // Transforma o objeto Java em JSON
@@ -47,7 +47,7 @@ public class Jira {
 
         // Cria a requisição POST para o endpoint de criação de issues
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(baseUrl + "/rest/api/3/issue"))
+                .uri(URI.create(baseUrl + "/rest/api/2/issue"))
                 .timeout(Duration.ofSeconds(60))
                 .header("Authorization", authHeader)
                 .header("Content-Type", "application/json")

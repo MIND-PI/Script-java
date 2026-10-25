@@ -15,9 +15,6 @@ public class VerificadorLimites {
     // Logs próprios para cada classe
     private static final Logger log = LoggerFactory.getLogger(VerificadorLimites.class);
 
-    //Objeto para abrir chamados no jira
-    CreateIssue createIssue = new CreateIssue();
-
     // Puxa o último reinício do CLP com base no uptime
     private void detectarReinicio(Clp clp) {
         clp.getLeituras().sort(Comparator.comparing(Leitura::getTimestamp));
@@ -58,10 +55,10 @@ public class VerificadorLimites {
 
                 //abrindo chamado no jira
                 if (valor > limite.getParametro()) {
-                    createIssue.criarChamado("CLP %s | %s = %s %s acima do limite %s | %s".formatted(clp.getId_clp(),
-                                                                                            limite.getApelido(), valor,
-                                                                                            limite.getUnidadeMedida(), limite.getParametro(),
-                                                                                            leitura.getTimestamp()));
+                    // algo virá aqui
+
+
+
                     log.warn("CLP {} | {} = {} {} acima do limite {} | {}",
                             clp.getId_clp(), limite.getApelido(), valor,
                             limite.getUnidadeMedida(), limite.getParametro(),
@@ -70,7 +67,7 @@ public class VerificadorLimites {
                     Violacao existente = violacoes.get(limite.getApelido());
                     if (existente == null) {
                         violacoes.put(limite.getApelido(),
-                                new Violacao(clp.getId_clp(), limite, valor, leitura));
+                                new Violacao(clp.getId_clp(), clp.getModelo_clp(), limite, valor, leitura));
                     } else {
                         existente.registrar(valor, leitura);
                     }

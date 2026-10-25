@@ -43,7 +43,7 @@ public class Main {
             } else {
                 System.out.println("\n" + clp + " | leituras: " + clp.getLeituras().size());
 
-                System.out.println("\n\n\n\n");
+                System.out.println("\n\n");
 
                 for (Leitura leitura : clp.getLeituras()) {
                     System.out.println(leitura);
@@ -62,18 +62,32 @@ public class Main {
             JdbcTemplate template = new JdbcTemplate(conexao.getConexao());
 
             // ABERTURA DE CHAMADO NO JIRA
+
+            // Busca os limites no banco
             LimiteDao limiteDao = new LimiteDao(template);
+
+            // Compara os limites do banco com as leituras do bucket
             VerificadorLimites verificador = new VerificadorLimites();
-//            ConexaoJira jira = new ConexaoJira();
+
+            // Conexão com o Jira
+            CreateIssue createIssue = new CreateIssue();
 //
             for (Clp clpAtual : clps) {
                 try {
+                    // Insere o mac_adress em clp
+                    clpAtual.setMac_adress(limiteDao.buscarMacAdress(clpAtual.getId_clp()));
+
+                    // Busca os limites no banco
                     List<LimiteMedicao> limites = limiteDao.buscarLimites(clpAtual.getId_clp());
+
+                    // Compara os limites do banco com as leituras do bucket
                     List<Violacao> violacoes = verificador.verificar(clpAtual, limites);
 
-//                    for (Violacao violacao : violacoes) {
-//                        jira.abrirChamado(violacao);
-//                    }
+                    // Cria o chamado no Jira
+                    if(!violacoes.isEmpty()){
+                        createIssue.criarChamado(clpAtual, violacoes);
+                    }
+
                 } catch (Exception e) {
                     log.error("Falha ao processar o CLP {}", clpAtual.getId_clp(), e);
                 }

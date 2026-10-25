@@ -2,6 +2,7 @@ package school.sptech;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -9,6 +10,8 @@ import java.util.List;
 
 // Consulta os limites no banco
 public class LimiteDao {
+    String mac_adress = null;
+
     // Logs próprios da classe
     private static final Logger log = LoggerFactory.getLogger(LimiteDao.class);
 
@@ -24,7 +27,7 @@ public class LimiteDao {
                 "FROM clp_medicao cm " +
                 "JOIN tipo_medicao tm ON " +
                 "tm.idTipoMedicao = cm.tipoMedicaoId " +
-                "WHERE cm.clpId = ? AND cm.ativo = 1";
+                "WHERE cm.clpId = ? AND cm.status = 1";
 
         List<LimiteMedicao> limites = template.query(
                 sql, new BeanPropertyRowMapper<>(LimiteMedicao.class), idClp);
@@ -32,4 +35,18 @@ public class LimiteDao {
         log.debug("CLP {}: {} limites encontrados no banco", idClp, limites.size());
         return limites;
     }
+
+    public String buscarMacAdress(Integer idClp){
+        String selectMac = "SELECT mac_address FROM clp WHERE idClp = ?";
+
+        try {
+            mac_adress = template.queryForObject(selectMac, String.class, idClp);
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("CLP {} não encontrado na tabela clp", idClp);
+            mac_adress = null;
+        }
+        return mac_adress;
+    }
+
+
 }

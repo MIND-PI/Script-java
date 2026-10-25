@@ -25,7 +25,8 @@ public class ConexaoBd {
 
         driver.setUsername(user);
         driver.setPassword(password);
-        driver.setUrl("jdbc:mysql://100.55.56.59:3306/mind");
+//        driver.setUrl("jdbc:mysql://100.55.56.59:3306/mind");
+        driver.setUrl("jdbc:mysql://127.0.0.1:3306/mind");
         driver.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         //Conecta ao banco de dados
