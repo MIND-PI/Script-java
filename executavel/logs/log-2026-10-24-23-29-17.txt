@@ -1,0 +1,55 @@
+2026-10-24T23:29:23.256-03:00 DEBUG --- [main] school.sptech.LimiteDao        : CLP 1: 11 limites encontrados no banco
+2026-10-24T23:29:23.258-03:00  INFO --- [main] s.sptech.VerificadorLimites    : Verificando CLP 1 | 13 leituras | 11 limites
+2026-10-24T23:29:23.259-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 90.9 % acima do limite 80 | 2026-10-24T23:19:04.516198
+2026-10-24T23:29:23.262-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:19:04.516198
+2026-10-24T23:29:23.262-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:19:04.516198
+2026-10-24T23:29:23.263-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:19:04.516198
+2026-10-24T23:29:23.264-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.4 % acima do limite 80 | 2026-10-24T23:19:09.190952
+2026-10-24T23:29:23.264-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:19:09.190952
+2026-10-24T23:29:23.264-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:19:09.190952
+2026-10-24T23:29:23.265-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:19:09.190952
+2026-10-24T23:29:23.265-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.2 % acima do limite 80 | 2026-10-24T23:19:13.452911
+2026-10-24T23:29:23.265-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:19:13.452911
+2026-10-24T23:29:23.265-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:19:13.452911
+2026-10-24T23:29:23.265-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:19:13.452911
+2026-10-24T23:29:23.266-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 86.9 % acima do limite 80 | 2026-10-24T23:21:42.205450
+2026-10-24T23:29:23.266-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:21:42.205450
+2026-10-24T23:29:23.266-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:21:42.205450
+2026-10-24T23:29:23.266-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:21:42.205450
+2026-10-24T23:29:23.266-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.1 % acima do limite 80 | 2026-10-24T23:21:47.444845
+2026-10-24T23:29:23.266-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:21:47.444845
+2026-10-24T23:29:23.266-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:21:47.444845
+2026-10-24T23:29:23.267-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:21:47.444845
+2026-10-24T23:29:23.267-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.2 % acima do limite 80 | 2026-10-24T23:21:51.973535
+2026-10-24T23:29:23.267-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:21:51.973535
+2026-10-24T23:29:23.267-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:21:51.973535
+2026-10-24T23:29:23.267-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:21:51.973535
+2026-10-24T23:29:23.269-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.0 % acima do limite 80 | 2026-10-24T23:21:56.427234
+2026-10-24T23:29:23.269-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:21:56.427234
+2026-10-24T23:29:23.269-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:21:56.427234
+2026-10-24T23:29:23.269-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:21:56.427234
+2026-10-24T23:29:23.269-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.2 % acima do limite 80 | 2026-10-24T23:22:00.855137
+2026-10-24T23:29:23.270-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:00.855137
+2026-10-24T23:29:23.270-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:00.855137
+2026-10-24T23:29:23.270-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:00.855137
+2026-10-24T23:29:23.270-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.4 % acima do limite 80 | 2026-10-24T23:22:05.197091
+2026-10-24T23:29:23.271-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:05.197091
+2026-10-24T23:29:23.271-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:05.197091
+2026-10-24T23:29:23.271-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:05.197091
+2026-10-24T23:29:23.271-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.5 % acima do limite 80 | 2026-10-24T23:22:09.651949
+2026-10-24T23:29:23.271-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:09.651949
+2026-10-24T23:29:23.271-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:09.651949
+2026-10-24T23:29:23.272-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:09.651949
+2026-10-24T23:29:23.272-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.8 % acima do limite 80 | 2026-10-24T23:22:14.163531
+2026-10-24T23:29:23.272-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:14.163531
+2026-10-24T23:29:23.272-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:14.163531
+2026-10-24T23:29:23.273-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:14.163531
+2026-10-24T23:29:23.273-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 88.3 % acima do limite 80 | 2026-10-24T23:22:18.404650
+2026-10-24T23:29:23.273-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:18.404650
+2026-10-24T23:29:23.273-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:18.404650
+2026-10-24T23:29:23.273-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:18.404650
+2026-10-24T23:29:23.274-03:00  WARN --- [main] s.sptech.VerificadorLimites    : CLP 1 | RAM = 87.3 % acima do limite 80 | 2026-10-24T23:22:22.412212
+2026-10-24T23:29:23.274-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'UPTIME' em 2026-10-24T23:22:22.412212
+2026-10-24T23:29:23.274-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'PROCESSOS' em 2026-10-24T23:22:22.412212
+2026-10-24T23:29:23.274-03:00 DEBUG --- [main] s.sptech.VerificadorLimites    : CLP 1: sem valor para 'HEALTH' em 2026-10-24T23:22:22.412212
+2026-10-24T23:29:23.274-03:00  INFO --- [main] s.sptech.VerificadorLimites    : CLP 1: 1 medidas fora do limite
