@@ -42,7 +42,7 @@ public class CreateIssue {
 
             try{
                 String response = jira.createIssue(
-                        "CHAM", // Key do projeto, presente na URL do seu site
+                        dotenv.get("KEY_WORKSPACE"), // Key do projeto, presente na URL do seu site
                         titulo, // Nome da issue
                         "Tarefa", // Tipo da issue: "Task", "Bug", "Story", etc.
                         descricao.toString()
