@@ -34,6 +34,7 @@ public class LimiteDao {
         List<LimiteMedicao> limites = template.query(
                 sql, new BeanPropertyRowMapper<>(LimiteMedicao.class), idClp);
 
+        System.out.println("Buscando limites no banco de dados...");
         log.debug("CLP {}: {} limites encontrados no banco", idClp, limites.size());
         return limites;
     }

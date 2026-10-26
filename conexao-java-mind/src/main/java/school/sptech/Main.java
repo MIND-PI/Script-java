@@ -29,6 +29,13 @@ public class Main {
         String prefixo = dotenv.get("PREFIXO");
         String nomePasta = "silver";
 
+        if(nomeBucket != null && prefixo != null && nomePasta != null){
+            System.out.println("Definindo nome do bucket e prefixo da busca: ");
+            System.out.println("Nome Bucket: " + nomeBucket);
+            System.out.println("Prefixo: " + prefixo);
+            System.out.println("Pasta: " + nomePasta);
+        }
+
         try {
             System.out.println("Buscando e instalando objetos na S3");
             S3Objects obj = new S3Objects();
@@ -51,12 +58,15 @@ public class Main {
 
             // Busca os limites no banco
             LimiteDao limiteDao = new LimiteDao(template);
+            System.out.println("Chamando objeto de consulta do banco");
 
             // Compara os limites do banco com as leituras do bucket
             VerificadorLimites verificador = new VerificadorLimites();
+            System.out.println("Chamando VerificarLimites");
 
             // Conexão com o Jira
             CreateIssue createIssue = new CreateIssue();
+            System.out.println("Conexão com o Jira criada!");
 //
             for (Clp clpAtual : clps) {
                 try {
@@ -70,7 +80,7 @@ public class Main {
                     clpAtual.setApelido(limiteDao.buscarNomeClp(clpAtual.getId_clp()));
 
                     // Busca os limites no banco
-                    List<LimiteMedicao> limites = limiteDao.buscarLimites(clpAtual.getId_clp());
+                    List<LimiteMedicao> limites = limiteDao.buscarLimites(clpAtual.getId_clp());;
 
                     // Compara os limites do banco com as leituras do bucket
                     List<Violacao> violacoes = verificador.verificar(clpAtual, limites);
@@ -101,6 +111,7 @@ public class Main {
             if (caminho != null) {
                 Path arquivo = Path.of(caminho);
                 new S3Objects().enviarLog(nomeBucket, "bronze/logs/" + arquivo.getFileName(), arquivo);
+                System.out.println("Logs enviados ao Bucket " + nomeBucket + " em bronze/logs/");
             }
         } catch (Exception e) {
             System.out.println("Não foi possível enviar o log ao bucket: " + e);
