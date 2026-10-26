@@ -98,11 +98,11 @@ public class S3Objects {
                 for (File arquivo : arquivos) {
                     arquivo.delete();
                 }
-                System.out.println("Arquivos apagados");
+                System.out.println("\n" + "Arquivos apagados");
             }
 
             if (pastaPref.delete()){
-                System.out.println("Pasta " + pastaPref +" deletada com sucesso");
+                System.out.println("Pasta " + pastaPref +" deletada com sucesso \n" );
             }
         }
     }

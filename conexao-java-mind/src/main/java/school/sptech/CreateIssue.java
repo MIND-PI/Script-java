@@ -15,7 +15,7 @@ public class CreateIssue {
     public void criarChamado(Clp clp, List<Violacao> violacoes){
         Dotenv dotenv = Dotenv.load();
         Jira jira = new Jira(dotenv.get("BASEURL"), dotenv.get("EMAIL_JIRA"), dotenv.get("API_TOKEN"));
-        System.out.println("Criando chamado no Jira...");
+        System.out.println("\n Criando chamado no Jira...");
 
         // Cria a descrição para o chamado de cada leitura fora do limite
         for (Violacao violacao : violacoes) {

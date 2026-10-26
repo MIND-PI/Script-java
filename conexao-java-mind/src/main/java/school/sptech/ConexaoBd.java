@@ -32,7 +32,7 @@ public class ConexaoBd {
         //Conecta ao banco de dados
         this.conexao = driver;
 
-        System.out.println("conexão com o banco criada");
+        System.out.println("Conexão com o banco criada");
     }
 
     public DataSource getConexao(){

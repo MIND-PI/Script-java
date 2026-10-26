@@ -30,10 +30,10 @@ public class Main {
         String nomePasta = "silver";
 
         if(nomeBucket != null && prefixo != null && nomePasta != null){
-            System.out.println("Definindo nome do bucket e prefixo da busca: ");
+            System.out.println("Definindo nome do bucket e prefixo da busca: \n");
             System.out.println("Nome Bucket: " + nomeBucket);
             System.out.println("Prefixo: " + prefixo);
-            System.out.println("Pasta: " + nomePasta);
+            System.out.println("Pasta: " + nomePasta + "\n");
         }
 
         try {
@@ -58,21 +58,21 @@ public class Main {
 
             // Busca os limites no banco
             LimiteDao limiteDao = new LimiteDao(template);
-            System.out.println("Chamando objeto de consulta do banco");
+            System.out.println("\n Chamando objeto de consulta do banco..");
 
             // Compara os limites do banco com as leituras do bucket
             VerificadorLimites verificador = new VerificadorLimites();
-            System.out.println("Chamando VerificarLimites");
+            System.out.println("Chamando VerificarLimites...");
 
             // Conexão com o Jira
             CreateIssue createIssue = new CreateIssue();
-            System.out.println("Conexão com o Jira criada!");
+            System.out.println("Conexão com o Jira criada! \n");
 //
             for (Clp clpAtual : clps) {
                 try {
                     // Insere o mac_adress em clp
                     clpAtual.setMac_adress(limiteDao.buscarMacAdress(clpAtual.getId_clp()));
-                    System.out.println("CLP atual: "+clpAtual);
+                    System.out.println("CLP atual: "+clpAtual+ "\n\n");
                     // Insere o nome do modelo em clp
                     clpAtual.setNome_modelo(limiteDao.buscarNomeModelo(clpAtual.getId_clp()));
 
