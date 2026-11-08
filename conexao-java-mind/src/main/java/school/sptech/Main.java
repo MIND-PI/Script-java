@@ -45,7 +45,7 @@ public class Main {
             List<Clp> clps = new Arquivo().lerCsvs(nomePasta);
 
             System.out.println("Deletando CSVs");
-            obj.deleteCsvs(prefixo);
+            obj.deleteCsvs(nomePasta);
 
 
             // ====================================================================
@@ -67,7 +67,7 @@ public class Main {
             // Conexão com o Jira
             CreateIssue createIssue = new CreateIssue();
             System.out.println("Conexão com o Jira criada! \n");
-//
+
             for (Clp clpAtual : clps) {
                 try {
                     // Insere o mac_adress em clp
@@ -103,7 +103,7 @@ public class Main {
         }
 
 
-        new S3Objects().deleteCsvs(prefixo); // garante que não sobram CSVs velhos na pasta
+        new S3Objects().deleteCsvs(nomePasta); // garante que não sobram CSVs velhos na pasta
 
         // Envio dos logs ao bucket
         try {
