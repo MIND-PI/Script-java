@@ -7,30 +7,57 @@ public class Clp {
     private Integer id_clp;
     private Integer id_empresa;
     private String apelido;
-    private String id_modelo;
+    private Integer id_modelo;
     private List<Leitura> leituras = new ArrayList<>();
     private String mac_adress;
     private String nome_modelo;
 
+    private static List<Clp> CLPS;
 
-    public Clp(Integer id_clp, Integer id_empresa, String modelo_clp) {
+
+    public Clp(Integer id_clp, Integer id_empresa, String apelido, Integer id_modelo, String mac_adress, String nome_modelo) {
         this.id_clp = id_clp;
         this.id_empresa = id_empresa;
-        this.id_modelo = modelo_clp;
+        this.apelido = apelido;
+        this.id_modelo = id_modelo;
+        this.mac_adress = mac_adress;
+        this.nome_modelo = nome_modelo;
+        leituras = new ArrayList<>();
     }
 
-    public Clp(Integer id_clp, Integer id_empresa, String modelo_clp, List<Leitura> leituras) {
-        this.id_clp = id_clp;
-        this.id_empresa = id_empresa;
-        this.id_modelo = modelo_clp;
-        this.leituras = leituras;
+    public static Clp getClpWhereId(Integer id_clp, Integer id_empresa) {
+        for (Clp clp: CLPS) {
+            if (clp.getId_clp().equals(id_clp) && clp.getId_empresa().equals(id_empresa)){
+                return clp;
+            }
+        }
+        return null;
     }
 
-    public String getId_modelo() {
+    public static Clp getClpWhereId(Integer id_clp, Integer id_empresa, Integer id_modelo) {
+        for (Clp clp: CLPS) {
+            if (clp.getId_clp().equals(id_clp) && clp.getId_empresa().equals(id_empresa) && clp.getId_modelo().equals(id_modelo)){
+                return clp;
+            }
+        }
+        return null;
+    }
+
+    public static void adicionarClpALista(Clp clp) {
+        if (getClpWhereId(clp.getId_clp(), clp.getId_empresa(), clp.getId_modelo()) == null){
+            CLPS.add(clp);
+        }
+    }
+
+    public static List<Clp> getCLPS() {
+        return CLPS;
+    }
+
+    public Integer getId_modelo() {
         return id_modelo;
     }
 
-    public void setId_modelo(String id_modelo) {
+    public void setId_modelo(Integer id_modelo) {
         this.id_modelo = id_modelo;
     }
 
@@ -81,21 +108,11 @@ public class Clp {
         return "Clp{" +
                 "id_clp=" + id_clp +
                 ", id_empresa=" + id_empresa +
-                ", modelo_clp='" + id_modelo + '\'' +
+                ", apelido='" + apelido + '\'' +
+                ", id_modelo=" + id_modelo +
                 ", leituras=" + leituras +
+                ", mac_adress='" + mac_adress + '\'' +
+                ", nome_modelo='" + nome_modelo + '\'' +
                 '}';
-    }
-
-    public String getClpWhereId(List<Clp> clps, Integer id_clp, Integer id_empresa) {
-        for (Clp clp: clps) {
-            if (clp.getId_clp().equals(id_clp) && clp.getId_empresa().equals(id_empresa)){
-                return "Clp{" +
-                        "modelo_clp='" + clp.getId_modelo() + '\'' +
-                        ", id_clp=" + id_clp +
-                        ", id_empresa=" + id_empresa +
-                        ", Leituras=" + clp.getLeituras();
-            }
-        }
-        return "Clp não encontrardo";
     }
 }

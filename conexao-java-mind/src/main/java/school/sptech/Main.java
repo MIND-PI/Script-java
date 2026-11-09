@@ -42,7 +42,7 @@ public class Main {
             obj.getS3Objects(nomeBucket, prefixo);
 
             System.out.println("Lendo CSVs");
-            List<Clp> clps = new Arquivo().lerCsvs(nomePasta);
+            new Arquivo().lerCsvs(nomePasta);
 
             System.out.println("Deletando CSVs");
             obj.deleteCsvs(nomePasta);
@@ -68,7 +68,7 @@ public class Main {
             CreateIssue createIssue = new CreateIssue();
             System.out.println("Conexão com o Jira criada! \n");
 
-            for (Clp clpAtual : clps) {
+            for (Clp clpAtual : Clp.getCLPS()) {
                 try {
                     // Insere o mac_adress em clp
                     clpAtual.setMac_adress(limiteDao.buscarMacAdress(clpAtual.getId_clp()));

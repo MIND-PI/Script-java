@@ -26,8 +26,7 @@ public class Arquivo {
         List<Clp> clps = new ArrayList<>();
 
         // definindo o nome da pasta em que acontecerá a busca
-        String nome = prefixo;
-        File pastaPref = new File(String.valueOf(nome));
+        File pastaPref = new File(String.valueOf(prefixo));
 
         // Se a pasta existe, lista os arquivos dentro da pasta
         if (pastaPref.exists()) {
@@ -48,16 +47,19 @@ public class Arquivo {
                     for (CSVRecord registro : parser) {
                         // Inserindo as informações do arquivo em variáveis
                         try {
-                            String modelo_clp = registro.get("modelo_clp");
-                            Integer id_clp = Integer.parseInt(registro.get("id_clp"));
-                            Integer id_empresa = Integer.parseInt(registro.get("id_empresa"));
+                            Integer id_clp = lerInteger(registro,"id_clp");
+                            Integer id_empresa = lerInteger(registro, "id_empresa");
+                            String apelido = registro.get("apelido");
+                            Integer id_modelo = lerInteger(registro, "id_modelo");
+                            String mac_adress = registro.get("mac_adress");
+                            String nome_modelo = registro.get("modelo_clp");
 
-                            Clp clp = buscarCpl(clps, id_clp, id_empresa, modelo_clp);
+                            Clp clp = buscarCpl(clps, id_clp, id_empresa, nome_modelo);
 
                             if (clp == null) {
-                                clp = new Clp(id_clp, id_empresa, modelo_clp);
+                                clp = new Clp(id_clp, id_empresa, apelido, id_modelo, mac_adress, nome_modelo);
                                 System.out.printf("\n   Criando novo objeto CLP: id_clp - %d, id_empresa - %d, modelo - %s", id_clp, id_empresa, modelo_clp);
-                                clps.add(clp);
+                                Clp.adicionarClpALista(clp);
                                 System.out.println("\n   Adicionando o CLP criado a lista de objetos");
                             }
 
