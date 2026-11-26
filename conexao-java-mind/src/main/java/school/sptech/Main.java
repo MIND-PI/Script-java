@@ -20,8 +20,8 @@ public class Main {
         scheduler.scheduleAtFixedRate(
                 processador::executar,
                 0,
-                60,
-                TimeUnit.SECONDS
+                15,
+                TimeUnit.MINUTES
         );
 
         Runtime.getRuntime().addShutdownHook(
