@@ -55,9 +55,6 @@ public class VerificadorLimites {
 
                 //abrindo chamado no jira
                 if (valor > limite.getParametro()) {
-                    // algo virá aqui
-
-
 
                     log.warn("CLP {} | {} = {} {} acima do limite {} | {}",
                             clp.getId_clp(), limite.getApelido(), valor,
