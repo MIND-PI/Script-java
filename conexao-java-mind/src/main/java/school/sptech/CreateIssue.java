@@ -41,8 +41,7 @@ public class CreateIssue {
                 descricao.append("    - ").append(linha).append("\n");
             }
             descricao.append("\n");
-
-
+            
             try{
                 String response = jira.createIssue(
                         dotenv.get("KEY_WORKSPACE"), // Key do projeto, presente na URL do seu site
